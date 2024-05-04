@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [""]
+ALLOWED_HOSTS = ["*"]
 
 LOGIN_URL = "login"
 
@@ -35,9 +35,13 @@ INSTALLED_APPS = [
     "users",
     "product",
     "client",
+    'music',
     # extensions
     "django_extensions",
     'import_export',
+    # framework
+    'rest_framework',
+    'rest_framework.authtoken',
 
 ]
 
@@ -69,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'onshop.wsgi.application'
+WSGI_APPLICATION = os.getenv("WSGI_APPLICATION")
 
 
 # Database
