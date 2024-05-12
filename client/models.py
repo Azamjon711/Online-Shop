@@ -33,5 +33,11 @@ class Customer(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['id']
+        indexes = [
+            models.Index(fields=['id'])
+        ]
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

@@ -13,5 +13,11 @@ class Product(models.Model):
     price = models.FloatField()
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['id']
+        indexes = [
+            models.Index(fields=['id'])
+        ]
+
     def __str__(self):
         return self.name
